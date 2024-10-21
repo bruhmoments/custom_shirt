@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import ShirtPreview from './components/ShirtPreview';
+import ImageUploader from './components/ImageUploader';
+import shirtImage from './assets/shirt.jpg'
 
-function App() {
+const App = () => {
+  const [uploadedImage, setUploadedImage] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlign: 'center' }}>
+      <h1>Custom Shirt Preview</h1>
+      <ImageUploader onImageUpload={setUploadedImage} />
+      <ShirtPreview shirtImage={shirtImage} uploadedImage={uploadedImage} />
     </div>
   );
-}
+};
 
 export default App;
